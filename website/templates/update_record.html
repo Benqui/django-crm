@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+
+    <div class="col-md-6 offset-md-3"> 
+        <h1>Update record</h1>
+        <br>
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <br>
+            <button type="submit" class="btn btn-success">Update record</button>
+            {% comment %} <a href="{% url "record" record.id %}"  class="btn btn-outline-primary">Go Back</a> {% endcomment %}
+        </form>
+    </div>
+    
+    {% else %}
+    <h1>NO tas loggiado sacate alv</h1>
+    {% endif %}
+
+{% endblock content %}
